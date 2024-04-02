@@ -24,7 +24,7 @@ class Review(db.Model, SerializerMixin):
     customer = db.relationship('Customer', back_populates = 'reviews' )
     item = db.relationship('Item' , back_populates = 'reviews')
 
-
+    serialize_rules = ('-customer.reviews', '-item.reviews')
 
 
 class Customer(db.Model, SerializerMixin):
